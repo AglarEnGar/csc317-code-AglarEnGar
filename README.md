@@ -10,18 +10,16 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Luca Morgan   		|
+| Student ID    | 921953991    		    |
+| Student Email | lumorgan3@sfsu.edu    |
 
 
 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
-2. steps here
+
 
 ## Run Instructions
-1. steps here
-2. steps here 
+ 
