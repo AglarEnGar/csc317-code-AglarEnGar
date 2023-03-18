@@ -1,8 +1,53 @@
+
+h1 {
+  color: white;
+  background-color: rgb(88, 88, 88);
+  border: 1px solid black;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:rgb(162, 159, 167);
 }
 
-a {
-  color: #00B7FF;
+nav {
+  background-color: black;
+  color: azure;
+  border: 2px solid gray;
+}
+
+img[title~="red"] {
+  border: 5px solid yellow;
+}
+
+input[type="submit"]:hover {
+  background-color: yellow;
+  color: rgb(139, 22, 14);
+  border: 3px black;
+  font-size: large;
+}
+
+#commentsection {
+  background-color: bisque;
+  border: 1em solid darkcyan;
+  color: blueviolet;
+  font-size: large;
+  font-family: monospace;
+}
+
+.comments {
+  color:aliceblue;
+  background-color: darkblue;
+}
+
+footer{
+  color: white;
+  background-color: black;
+  border: 1px solid darkblue;
+  margin: 50px;
+  grid-row-start: 4;
+}
+a:visited {
+  color: #19a162;
 }
