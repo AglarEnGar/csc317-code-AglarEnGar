@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="H:\Users\Luca\Documents\GitHub\csc317-code-AglarEnGar\application\public\css\style.css">
+    <script defer src="../js/validation.js"></script>
 </head>
 <body>
     <header>
@@ -25,24 +26,34 @@
         <h2>Registration Form</h2>
             <form>
                 <label for="email">E-Mail</label>
-                <input type="text" name="email" id="email" placeholder="Email Address">
-
-                
+                <input type="email"  name="email" id="email" placeholder="Email Address" required>
+                <p id="emailverif" class="verification"> </p>
+                <br>
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="usernameR" placeholder="Username">
+                <input type="text" name="username" id="usernameR" placeholder="Username" required>
+                <p id="usernameverif" class="verification"> </p>
+                <br>
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="passwordR" placeholder="Password">
+                <input type="password" name="password" id="passwordR" placeholder="Password" required>
+                <p id="passverif" class="verification"> </p>
+                <br>
                 <label for="password">Confirm Password:</label>
-                <input type="password" name="password" id="passwordconfirm" placeholder="Confirm Password">
-                
+                <input type="password" name="password" id="passwordconfirm" placeholder="Confirm Password" required>
+                <p id="confirmpassverif" class="verification"> </p>
+                <br>
+                <p id="agecheckverif" class="verification" > </p>
                 <label for="age">Are you 13 years of age or older?</label>
-                <input type="checkbox" name="Age Check" id="age">
-
+                <input type="checkbox" name="Age Check" id="age" required>
+                
+                <br>
+                <p id="TOS verif" class="verification"> </p>
                 <label for="tos">Please check if you agree to the </label>
                 <a href="#">TOS and Privacy Rules</a>
-                <input type="checkbox" name="TOS" id="tos">
-
-                <input type="submit" value = "Log In">
+                <input type="checkbox" name="TOS" id="tos" required>
+                <br>
+                <input type="submit" value = "Log In" id="submitR" required>
+                <br>
+                <p id="submitverif" class="verification" >  </p>
             </form>
     </main>
     <footer>
