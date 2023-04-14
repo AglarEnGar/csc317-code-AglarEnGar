@@ -41,12 +41,43 @@ input[type="submit"]:hover {
   background-color: darkblue;
 }
 
+.valid-text {
+  color: solid green;
+}
+
+.invalid-text {
+  color: solid red;
+}
+
+.api_grid {
+  background-color: #eee;
+  max-width: 250px;
+  display: grid;
+}
+.album {
+
+}
+
+.thumbnail {
+
+}
+
+.album-details {
+
+}
+
+.album-title {
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.album-url {
+
+}
 footer{
   color: white;
   background-color: black;
-  border: 1px solid darkblue;
-  margin: 50px;
-  grid-row-start: 4;
+
 }
 a:visited {
   color: #19a162;
