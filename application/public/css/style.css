@@ -10,6 +10,11 @@ body {
 
 }
 
+ul {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
 nav {
   background-color: black;
   color: azure;
@@ -33,11 +38,17 @@ input[type="submit"]:hover {
   color: blueviolet;
   font-size: large;
   font-family: monospace;
+  display: grid;
 }
 
 .comments {
   color:aliceblue;
   background-color: darkblue;
+  padding: 5px;
+}
+.comment {
+  padding: 15px;
+  border: 1em solid black;
 }
 
 .valid-text {
