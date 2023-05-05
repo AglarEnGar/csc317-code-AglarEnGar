@@ -1,3 +1,4 @@
+
 function validateUsername(username, password, passwordconfirm){
 
     var letters = /^[A-Za-z]+$/;
@@ -249,6 +250,7 @@ document.getElementById('tos').addEventListener('change', () => {
         document.getElementById("TOS verif").innerHTML = "*";
     }
 });
+
 document.getElementById('submitR').addEventListener("click", function (ev) {
     if(ev.currentTarget.value){
         validateUsername(document.getElementById("usernameR").value, document.getElementById("passwordR").value, document.getElementById("passwordconfirm").value);

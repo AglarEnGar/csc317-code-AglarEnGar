@@ -1,10 +1,18 @@
 <main>
     <h2>Login Form</h2>
-    <form>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" placeholder="Username">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" placeholder="Password">
-        <input type="submit" value = "Log In">
+    <form id = 'login-form' class='logingin_form' id='loginforum' action="/users/login" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class='login_form' id='loguser'>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+
+        <div class='login_form' id='logpass'>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Password">
+            
+        </div>
+        <div class='login_form' id='buttonsubmitlogin'>
+            <input type="submit" value = "Log In">
+        </div>
     </form>
 </main>

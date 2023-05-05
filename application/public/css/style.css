@@ -31,6 +31,63 @@ input[type="submit"]:hover {
   border: 3px black;
   font-size: large;
 }
+.input-form {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: auto;
+
+}
+
+.regform {
+  width:400px;
+  height:50px;
+  text-align:center;
+  color: white;
+  justify-items: center;
+  font-size: medium;
+  background-color: black;
+  border: 1em solid black;
+}
+
+.profile {
+  margin: 2em;
+  border: solid black;
+  display: grid;
+}
+.profile-dets {
+  margin: 1em;
+
+}
+
+.logingin_form {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: auto;
+
+}
+.login_form {
+  width:200px;
+  height:50px;
+  color: white;
+  justify-items: center;
+  font-size: large;
+  background-color: blueviolet;
+  border: 1em solid black;
+}
+
+#subbuttonregform {
+  display: grid;
+  justify-items: center;
+  align-content: end;
+}
+
+#buttonsubmitlogin {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
 
 #commentsection {
   background-color: bisque;

@@ -18,9 +18,7 @@ router.get('/postvideo', function(req, res){
   res.render('postvideo', { title: 'Post Video'});
 });
 
-router.get('/profile', function(req, res){
-  res.render('profile', { title: 'Profile'});
-});
+
 
 router.get('/viewpost/:id(\\d+)', function(req, res){
   res.render('viewpost', { title: 'View Post'});

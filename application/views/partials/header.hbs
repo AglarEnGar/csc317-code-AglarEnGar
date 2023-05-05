@@ -3,11 +3,16 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
+                {{#if isLoggedIn}}
+                    {{> userdropdown}}
+                {{else}}
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
+                
                 <li><a href="/registration">Register</a></li>
                 <li><a href="/postvideo">Post Video</a></li>
                 <li><a href="/viewpost">View Post</a></li>
-                <li><a href="/profile">Profile</a></li>
+                <li><a href="/users/profile/{{user.userId}}">Profile</a></li>
             </ul>
         </nav>
     </header>

@@ -1,34 +1,50 @@
 <main>
     <h2>Registration Form</h2>
-        <form>
-            <label for="email">E-Mail</label>
-            <input type="email"  name="email" id="email" placeholder="Email Address" required>
-            <p id="emailverif" class="verification"> </p>
-            <br>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="usernameR" placeholder="Username" required>
-            <p id="usernameverif" class="verification"> </p>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="passwordR" placeholder="Password" required>
-            <p id="passverif" class="verification"> </p>
-            <br>
-            <label for="password">Confirm Password:</label>
-            <input type="password" name="password" id="passwordconfirm" placeholder="Confirm Password" required>
-            <p id="confirmpassverif" class="verification"> </p>
-            <br>
-            <p id="agecheckverif" class="verification" > </p>
-            <label for="age">Are you 13 years of age or older?</label>
-            <input type="checkbox" name="Age Check" id="age" required>
+        <form id="reg-form" class='input-form' action="/users/register" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class='regform'>
+                <label for="email">E-Mail</label>
+                <input type="email"  name="email" id="email" placeholder="Email Address" >
+                <p id="emailverif" class="verification"> </p>
+            </div>
             
             <br>
-            <p id="TOS verif" class="verification"> </p>
-            <label for="tos">Please check if you agree to the </label>
-            <a href="#">TOS and Privacy Rules</a>
-            <input type="checkbox" name="TOS" id="tos" required>
+            <div class='regform'>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="usernameR" placeholder="Username" >
+                <p id="usernameverif" class="verification"> </p>
+            </div>
+            
             <br>
-            <input type="submit" value = "Log In" id="submitR" required>
+            <div class='regform'>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="passwordR" placeholder="Password" >
+                <p id="passverif" class="verification"> </p>
+            </div>
+            
             <br>
-            <p id="submitverif" class="verification" >  </p>
+            <div class='regform'>
+                <label for="password">Confirm Password:</label>
+                <input type="password" name= "confirm_pass" id="passwordconfirm" placeholder="Confirm Password" >
+                <p id="confirmpassverif" class="verification"> </p>
+            </div>
+            
+            <br>
+            <div class='regform'>
+                <label for="age">Are you 13 years of age or older?</label>
+                <input type="checkbox" name="Age_Check" id="age" required>
+            </div>
+            <br>
+            <div class='regform'>
+                <label for="tos">Please check if you agree to the </label>
+                <a href="#">TOS and Privacy Rules</a>
+                <input type="checkbox" name="TOS" id="tos" required>
+            </div>
+            
+            <br>
+            <div class='regform' id='subbuttonregform'>
+                <input type="submit" value = "Submit" id="submitR">
+                <p id="submitverif" class="verification" >  </p>
+            </div>
+
         </form>
 </main>

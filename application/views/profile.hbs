@@ -1,8 +1,12 @@
 <main>
 <h2>Your Profile</h2>
 <section>
-    <h3><b>Username</b></h3>
-    <h4><i>email</i></h4>
+    <div class='profile'>
+        <h3><b name = "username" class = 'profile-dets'>Username: {{user.username}}</b></h3>
+        <img class = 'profile-dets' src="https://cdn.discordapp.com/attachments/1011800990669864990/1103921595464024185/image.png" alt="">
+        <h4><i name = "email" class = 'profile-dets'>Email: {{user.email}}</i></h4>
+    </div>
+    
     
     <details>
         <summary>Post History</summary>
