@@ -2,9 +2,20 @@ var express = require('express');
 var router = express.Router();
 var db = require('../conf/database');
 var bcrypt = require('bcrypt');
+var { isLoggedIn, isMyProfile } = require("../middleware/auth");
+const { isUsernameUnique, usernameCheck, emailCheck, isEmailUnique, passwordCheck, ageCheck, tosCheck } = require("../middleware/validation");
 
 //localhost:3000/users/register
-router.post('/register', async function(req, res, next) {
+router.post('/register',
+  isUsernameUnique,
+  usernameCheck,
+  emailCheck,
+  isEmailUnique,
+  passwordCheck,
+  ageCheck,
+  tosCheck,
+  async function(req, res, next) 
+{
   var {username, email, password} = req.body;
 
   //check username uniqueness
@@ -63,11 +74,11 @@ router.post('/login', async function(req, res, next) {
   }
 });
 
-router.get('/profile/:id(\\d+)', function(req, res){
+router.get('/profile/:id(\\d+)', isLoggedIn, isMyProfile, function(req, res){
   res.render('profile', { title: 'Profile'});
 });
 
-router.post('/logout', async function(req, res, next) {
+router.post('/logout', isLoggedIn, async function(req, res, next) {
   req.session.destroy(function(err) {
     if(err){
       next(error);

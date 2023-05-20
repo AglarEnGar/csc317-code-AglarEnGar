@@ -1,8 +1,16 @@
 <div class='dropdown-menu-nobs'>
     <div class='dropdown-menu-items'>
-        <a class='nav-items' href="/users/profile/{{user.userId}}">Hi, {{user.username}}</a>
-        <form action="/users/logout" method="post">
-            <button class='nav-items' type='submit'>Log out</button>
-        </form>
+        <ul>
+            <li>
+                <div class="profile-drop">
+                    <a class='nav-items' href="/users/profile/{{user.userId}}">Hi, {{user.username}}</a>
+                    <form action="/users/logout" method="post">
+                        <button class='nav-items' type='submit'>Log out</button>
+                    </form>
+                </div>
+
+            </li>
+        </ul>
+
     </div>
 </div>
