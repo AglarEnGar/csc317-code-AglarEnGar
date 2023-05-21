@@ -20,7 +20,7 @@ router.post('/create', isLoggedIn, async function(req, res, next){
                 commentText:comment,
             });
         }else {
-
+            
         }
     }catch(error) {
         next(error);

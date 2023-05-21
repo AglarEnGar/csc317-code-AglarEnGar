@@ -15,7 +15,7 @@ ul {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
 }
 
 ul li{
@@ -229,8 +229,27 @@ input[type="submit"]:hover {
   margin: 10px;
 }
 
-.vid-input {
-  size: 300%;
+.post-main-content {
+  display: grid;
+  align-items: center;
+}
+
+.video-full {
+  display: grid;
+
+}
+
+.video-container {
+  margin-top: 20px;
+  margin-left: 20px;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.post-info {
+  margin: 20px;
+  display: grid;
+  margin-top: 0%;
 }
 
 .comments {
@@ -292,4 +311,19 @@ footer{
 }
 a:visited {
   color: #19a162;
+}
+
+address {
+  margin: 10px;
+}
+
+summary {
+  margin: 20px;
+  font-size: large;
+
+}
+details {
+  background-color: beige;
+  border-radius: 5px;
+  border: solid black;
 }

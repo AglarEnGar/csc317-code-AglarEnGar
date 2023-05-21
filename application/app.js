@@ -13,7 +13,7 @@ const usersRouter = require("./routes/users");
 
 const postsRouter = require("./routes/posts");
 const commentsRouter = require("./routes/comments");
-var flash = require('express-flash');
+const flash = require('express-flash');
 const app = express();
 
 app.engine(
@@ -41,6 +41,7 @@ app.use(cookieParser("csc 317 secret"));
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use("/public", express.static(path.join(__dirname, "public")));
+
 
 app.use(sessions({
   secret: "csc 317 secret",

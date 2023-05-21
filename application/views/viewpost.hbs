@@ -1,23 +1,26 @@
 <main class="post-main-conent">
-    <video class = "video-container" controls>
-        <source src="/{{currentPost.video}}" type="video/mp4" alt = "A cat spinning around with goofy music">
-    </video>
+    <div class="video-full">
+        <video class = "video-container" controls>
+            <source src="/{{currentPost.video}}" type="video/mp4" alt = "A cat spinning around with goofy music">
+        </video>
 
-    <div class="post-info">
-        <h2 class= "post-title"><b>{{currentPost.title}}</b></h2>
-        <div class="post-author-and-date">
-            <div class="profile-on-posts">
-                <img src="https://cdn.discordapp.com/attachments/951234253151158302/1109282669134610432/pngwing.com.png" alt="pfp" width="20px" height="20px">
-                <p class="post-author"> <b>{{currentPost.username}}</b>  </p>
+        <div class="post-info">
+            <h2 class= "post-title"><b>{{currentPost.title}}</b></h2>
+            <div class="post-author-and-date">
+                <div class="profile-on-posts">
+                    <img src="https://cdn.discordapp.com/attachments/951234253151158302/1109282669134610432/pngwing.com.png" alt="pfp" width="20px" height="20px">
+                    <p class="post-author"> <b>{{currentPost.username}}</b>  </p>
+                </div>
+                
+                <p class="post-date"> {{currentPost.createdAt}} </p>
             </div>
-            
-            <p class="post-date"> {{currentPost.createdAt}} </p>
-        </div>
         <p class="description">
             {{currentPost.description}}
         </p>
     </div>
-    <div id="comments" class="comment-section">
+
+    </div>
+        <div id="comments" class="comment-section">
         <b id="commentsection" class="comments-header">Comments</b> 
         <div class="comment-box">
             <textarea class="text-comment-area" name="commentTextArea" id="comment-text"></textarea>

@@ -20,8 +20,25 @@ module.exports = {
             }
         }
     },
-    getPostsForUserById: function(req, res, next){
+    getPostsForUserById: async function(req, res, next){
+        var {id} = req.params;
+        try {
+            let [ rows, _ ] = await db.execute(
+                `select u.username, p.thumbnail, p.title, p.createdAt
+                from posts p 
+                join users u 
+                on p.fk_userId=u.id
+                where u.id=?;`,
+                [id]
+            );
 
+            console.log(rows);
+            res.locals.posts = rows;
+            next();
+
+        } catch(error) {
+            next(error);
+        }
     },
     getPostById: async function(req, res, next){
         var {id} = req.params;
@@ -37,9 +54,11 @@ module.exports = {
 
             const post = rows[0];
             if(!post){
-
+                res.locals.posts = rows;
+                next();
             }else{
                 res.locals.currentPost = post;
+
                 next();
             }
         }catch(error){
@@ -64,8 +83,19 @@ module.exports = {
             next(error);
         }
     },
-    getRecentPosts: function(req, res, next){
-        res.locals.posts = rows;
-        next();
+    getRecentPosts: async function(req, res, next){
+
+        try{
+            let [rows, _ ] = await db.execute(
+                `SELECT * FROM csc317db.posts;`
+            );
+
+            res.locals.posts = rows;
+            next();
+            
+        }catch(error){
+            next(error);
+        }
+        
     }
 }

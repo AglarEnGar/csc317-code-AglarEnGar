@@ -34,7 +34,6 @@ router.post("/create", isLoggedIn, upload.single("uploadVideo"), makeThumbnail, 
         if(insertResult && insertResult.affectedRows){
             req.flash('success', 'your post was created!');
             return req.session.save(function(error){
-                
                 if(error) next(error);
                 return res.redirect('/');
             });
@@ -61,7 +60,8 @@ router.get("/search", async function(req, res, next){
         );
 
         if(rows && rows.length == 0){
-
+            req.flash('error', 'No results found');
+            return res.redirect('/');
         }else{
             res.locals.posts = rows;
             return res.render('index');
@@ -72,7 +72,7 @@ router.get("/search", async function(req, res, next){
 });
 
 router.delete("/delete", function(req, res, next){
-
+    
 });
 
 

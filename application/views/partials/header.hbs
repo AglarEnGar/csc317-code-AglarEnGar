@@ -1,24 +1,23 @@
-    <header>
-        <h1 class="head-of-app"> Forum-317 </h1>
-        <nav id="nav-bar">
-            <ul class="nav_bar">
-                <li class="nav-item" ><a href="/">Home</a></li>
+<header>
+    <h1 class="head-of-app"> Forum-317 </h1>
+    <nav id="nav-bar">
+        <ul class="nav_bar">
+            <li class="nav-item" ><a href="/">Home</a></li>
 
-                {{#if isLoggedIn}}
-                    {{> userdropdown}}
-                {{else}}
-                    <li><a href="/login">Login</a></li>
-                {{/if}}
-                <li class="nav-item" id="search-bar">
-                    <form action="/posts/search" method="GET" enctype="application/x-www-form-urlencoded" class="search-bar">
-                        <input id="search-text" class="search-text" name="searchValue" type="text">
-                        <button type="submit" class="search-button">
-                            <img src="https://cdn.discordapp.com/attachments/951234253151158302/1109282669134610432/pngwing.com.png" alt="magnifying-glass">
-                        </button>
-                    </form>
-                </li>
-                <li class="nav-item"><a href="/postvideo">Post</a></li>
-                <li class="nav-item"><a href="/viewpost">View Post</a></li>
-            </ul>
-        </nav>
-    </header>
+            {{#if isLoggedIn}}
+                {{> userdropdown}}
+            {{else}}
+                <li><a href="/login">Login</a></li>
+            {{/if}}
+            <li class="nav-item" id="search-bar">
+                <form action="/posts/search" method="GET" enctype="application/x-www-form-urlencoded" class="search-bar">
+                    <input id="search-text" class="search-text" name="searchValue" type="text">
+                    <button type="submit" class="search-button">
+                        <img src="https://cdn.discordapp.com/attachments/951234253151158302/1109282669134610432/pngwing.com.png" alt="magnifying-glass">
+                    </button>
+                </form>
+            </li>
+            <li class="nav-item"><a href="/postvideo">Post</a></li>
+        </ul>
+    </nav>
+</header>

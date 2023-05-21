@@ -8,19 +8,20 @@
     </div>
     
     
-    <details>
-        <summary>Post History</summary>
-        <p>
-            <ol>
-                <li><a href="#">Post 1</a></li>
-                <li><a href="#">Post 2</a></li>
-                <li><a href="#">Post 3</a></li>
-                <li><a href="#">Post 4</a></li>
-                <li><a href="#">Post 5</a></li>
-                <li><a href="#">Post 6</a></li>
-            </ol>
-        </p>
-    </details>
+    <div class="user-posts">
+        <summary> <b>Post History</b> </summary>
+        <div class="profile-post-list">
+            {{#each posts}}
+                <div class="vid-card">
+                    <img src="/{{thumbnail}}" alt="Thumbnail">
+                    <div class="vid-card-container">
+                        <h3 class="vid-title"> <b>{{title}}</b>  </h3>
+                        <a href="/posts/{{id}}">View Post</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
         
     
 </section>

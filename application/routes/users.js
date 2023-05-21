@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../conf/database');
 var bcrypt = require('bcrypt');
+var { getPostsForUserById } = require("../middleware/posts");
 var { isLoggedIn, isMyProfile } = require("../middleware/auth");
 const { isUsernameUnique, usernameCheck, emailCheck, isEmailUnique, passwordCheck, ageCheck, tosCheck } = require("../middleware/validation");
 
@@ -52,12 +53,16 @@ router.post('/login', async function(req, res, next) {
   
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.redirect('login');
+    req.flash("error", 'Log in Failed: Invalid username/password');
+    return res.redirect('/login');
   } else {
     var [rows, fields] = await db.execute(`select id, username,password,email from users where username=?;`, [username]);
     var user = rows[0];
     if(!user) {
-      return res.redirect('/login');
+      req.session.save(function(err){
+        req.flash("error", 'Log in Failed: Invalid username/password');
+        return res.redirect('/login');
+      });
     } else {
       var passwordMatch = await bcrypt.compare(password, user.password);
       if(passwordMatch) {
@@ -74,7 +79,7 @@ router.post('/login', async function(req, res, next) {
   }
 });
 
-router.get('/profile/:id(\\d+)', isLoggedIn, isMyProfile, function(req, res){
+router.get('/profile/:id(\\d+)', isLoggedIn, isMyProfile, getPostsForUserById, async function(req, res){
   res.render('profile', { title: 'Profile'});
 });
 
