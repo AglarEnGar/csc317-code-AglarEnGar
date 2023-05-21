@@ -1,40 +1,85 @@
-<a href="#nav-bar" class="jump-to-top-button" id="jump-to-top-button">Back to the Top</a>
+<main class="post-main-conent">
+    <video class = "video-container" controls>
+        <source src="/{{currentPost.video}}" type="video/mp4" alt = "A cat spinning around with goofy music">
+    </video>
 
-<main>
-    <h2>Working Post Title</h2>
-    <h3>Author</h3>
-    <figure>
-        <figcaption>Creation Time and Date</figcaption>
-        <video width="500px" height="300px"
-            controls="controls"/>
-            <source src="https://cdn.discordapp.com/attachments/936818062341058611/1078606124921655389/max.mp4" type="video/mp4" alt = "A cat spinning around with goofy music">
-        </video>
-    </figure>
-    <aside class="comments">
-        <b id="commentsection" class="comments">Comments Section:</b> 
-            <div class="comment">
-                comment 1
+    <div class="post-info">
+        <h2 class= "post-title"><b>{{currentPost.title}}</b></h2>
+        <div class="post-author-and-date">
+            <div class="profile-on-posts">
+                <img src="https://cdn.discordapp.com/attachments/951234253151158302/1109282669134610432/pngwing.com.png" alt="pfp" width="20px" height="20px">
+                <p class="post-author"> <b>{{currentPost.username}}</b>  </p>
             </div>
-            <div class="comment">
-                comment 2
-            </div>
-            <div class="comment">
-                comment 3
-            </div>
-            <div class="comment">
-                comment 4
-            </div>
-            <div class="comment">
-                comment 5
-            </div>
-            <div class="comment">
-                comment 6
-            </div>
-            <div class="comment">
-                comment 7
-            </div>
-            <div class="comment">
-                comment 8
-            </div>
-    </aside>
+            
+            <p class="post-date"> {{currentPost.createdAt}} </p>
+        </div>
+        <p class="description">
+            {{currentPost.description}}
+        </p>
+    </div>
+    <div id="comments" class="comment-section">
+        <b id="commentsection" class="comments-header">Comments</b> 
+        <div class="comment-box">
+            <textarea class="text-comment-area" name="commentTextArea" id="comment-text"></textarea>
+            <button type="submit" id="comment-button" class="comment-button" aria-hidden="false" data-postid="{{currentPost.id}}">
+                Comment
+            </button>
+            
+        </div>
+        <aside class="comments">
+            
+            {{#each currentPost.comments}}
+                <div class="comment">
+                    <strong class="comment-author">@{{this.username}}</strong>
+                    <span class="comment-date">{{this.createdAt}}</span>
+                    <div class="comment-text"> {{this.text}} </div>
+                </div>
+            {{/each}}
+            
+        </aside>
+    </div>
+    <script>
+        document.getElementById("comment-button").addEventListener('click', function(ev){
+            let commentText = document.getElementById("comment-text").value;
+
+            if(!commentText) return;
+
+            var postId = ev.currentTarget.dataset.postid;
+
+            fetch("/comments/create",{
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        postId: postId,
+                        comment: commentText
+                    }
+                )
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                var comments = document.getElementById('comments')
+                let commentFragment = document.createElement('template');
+                commentFragment.innerHTML = 
+                `<div class="comment">
+                    <strong class="comment-author">@${data.username}</strong>
+                    <span class="comment-date">${(new Date()).toLocaleString("en-us",{dateStyle:"long",timeStyle:"medium"})}</span>
+                    <div class="comment-text"> ${data.commentText} </div>
+                </div>`
+                comments.append(commentFragment.content.firstChild);
+                document.getElementById("comment-text").value='';
+            })
+            .catch(err => console.log(err));
+            
+            
+        });
+
+    </script>
+
+    <a href="#nav-bar" class="jump-to-top-button" id="jump-to-top-button">Back to the Top</a>
 </main>
+
+

@@ -4,7 +4,7 @@ var multer = require('multer');
 var db = require('../conf/database');
 
 const { isLoggedIn } = require("../middleware/auth");
-const { makeThumbnail } = require('../middleware/posts');
+const { makeThumbnail, getPostById, getCommentsForPostById } = require('../middleware/posts');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -46,7 +46,7 @@ router.post("/create", isLoggedIn, upload.single("uploadVideo"), makeThumbnail, 
     }
 });
 
-router.get('/:id(\\d+)', function(req, res){
+router.get('/:id(\\d+)', getPostById, getCommentsForPostById, function(req, res){
     res.render('viewpost', { title: `View Post ${req.params.id}`});
   });
 
@@ -60,7 +60,7 @@ router.get("/search", async function(req, res, next){
             [`%${searchValue}%`]
         );
 
-        if(rows &&rows.length == 0){
+        if(rows && rows.length == 0){
 
         }else{
             res.locals.posts = rows;
@@ -69,7 +69,6 @@ router.get("/search", async function(req, res, next){
     }catch(error){
         next(error);
     }
-    res.end();
 });
 
 router.delete("/delete", function(req, res, next){

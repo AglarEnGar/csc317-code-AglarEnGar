@@ -1,14 +1,23 @@
 <main>
-<h2>Post Video</h2>
-<form id="posr-image" class="input-form" action="/posts/create" method="POST" enctype="multipart/form-data">
-    <label for="vtitle">Video Title</label>
-    <input type="text" name="title" id="vtitle" placeholder="Video Title">
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" placeholder="Description">
-    <label for="upload">Upload Video</label>
-    <input type="file" name="uploadVideo" id="upload" value = "Upload">
-    <label for="acceptuse">Acceptable Use Policy</label>
-    <input type="checkbox" name="Acceptable Use Policy" id="acceptuse">
-    <input type="submit" value="Submit">
-</form>
+    <h2 class="post-video-page">Post Video</h2>
+    <form id="post-image" class="input-form" action="/posts/create" method="POST" enctype="multipart/form-data">
+        <div class="input-layouts">
+            <label for="vtitle">Video Title</label>
+            <input class= 'vid-input' type="text" name="title" id="vtitle" placeholder="Video Title">
+        </div>
+        <div class="input-layouts">
+            <label for="description">Description:</label>
+            <input class= 'vid-input' type="text" name="description" id="description" placeholder="Description">
+        </div>
+        <div class="input-layouts">
+            <label for="upload">Upload Video</label>
+            <input class= 'vid-input' type="file" name="uploadVideo" id="upload" value = "Upload">
+        </div>
+        <div>
+            <label for="acceptuse">Acceptable Use Policy</label>
+            <input class= 'vid-input' type="checkbox" name="Acceptable Use Policy" id="acceptuse">
+        </div>
+        
+        <input class= 'vid-input' type="submit" value="Submit">
+    </form>
 </main>

@@ -8,6 +8,7 @@
     "grade": "npm i && node ./bin/dbloader  && nodemon ./bin/www"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "bcrypt": "^5.1.0",
     "colors": "^1.4.0",
     "connect-flash": "^0.1.1",

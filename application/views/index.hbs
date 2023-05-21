@@ -1,9 +1,12 @@
 <main id="main-content">
     {{#if messages.info}}
-    {{messages.info}}
+        {{messages.info}}
     {{/if}}
+    <div class="vid-cards">
+        {{#each posts}}
+            {{>card this}}
+        {{/each}}
+    </div>
 
-    {{#each posts}}
-        {{>card this}}
-    {{/each}}
 </main>
+<br>
