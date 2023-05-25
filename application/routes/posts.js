@@ -32,7 +32,7 @@ router.post("/create", isLoggedIn, upload.single("uploadVideo"), makeThumbnail, 
         );
 
         if(insertResult && insertResult.affectedRows){
-            req.flash('success', 'your post was created!');
+            req.flash('success', 'Your post was created!');
             return req.session.save(function(error){
                 if(error) next(error);
                 return res.redirect('/');
@@ -71,9 +71,37 @@ router.get("/search", async function(req, res, next){
     }
 });
 
-router.delete("/delete", function(req, res, next){
+router.get("/delete/:id", getPostById, getCommentsForPostById, async function(req, res, next){
+    var { id } = req.params;
+    console.log(id);
+    try {
+
+        let [posts, _ ] = await db.execute("SELECT * FROM posts WHERE id=?", [id]);
+
+        let [comments, _1] = await db.execute("SELECT id FROM comments WHERE fk_postId=?", [id]);
+
+
+              
+        if (posts.length)
+        {
+            if (comments.length)
+            {
+                await  db.execute(`DELETE FROM csc317db.comments WHERE (fk_postId = ?);`, [id]);
+                console.log(`Deleted comment ${id} yay1!`);
+            }
+            await db.execute(`DELETE FROM csc317db.posts WHERE id=?;`, [id]);
+        }
+        else {
+            return res.send("NO NO NO, U NAUGHTY NO FUCKY WUCKY WITH THE PARAMY WAMMIES");
+        }
+        res.redirect("back"); 
+            
+    }catch(error) {
+        next(error);
+    } 
     
 });
+
 
 
 module.exports = router;

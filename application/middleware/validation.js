@@ -31,15 +31,18 @@ module.exports = {
         next();
     },
     isUsernameUnique: async function (req, res, next) {
-        var {username} = req.body;
+        var { username } = req.body;
+        var { email } = req.body;
         try{
             var [rows, fields] = await db.execute(`select id from users where username=?;`, [username]);
             if(rows && rows.length > 0){
-              return res.redirect('/registration');
+                req.flash('error', 'Username Already Taken');
+                return res.redirect('/registration');
             }
             var [rows, fields] = await db.execute(`select id from users where email=?;`, [email]);
             if(rows && rows.length > 0){
-              return res.redirect('/registration');
+                req.flash('error', 'An account with that email already exists');
+                return res.redirect('/registration');
             }else{
                 next();
             }    

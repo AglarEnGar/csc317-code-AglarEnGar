@@ -16,7 +16,12 @@
                     <img src="/{{thumbnail}}" alt="Thumbnail">
                     <div class="vid-card-container">
                         <h3 class="vid-title"> <b>{{title}}</b>  </h3>
-                        <a href="/posts/{{id}}">View Post</a>
+                        <a href="/posts/{{id}} ">View Post</a>
+
+                        {{!-- <button type="submit" formaction="/delete/{{id}}">Delete Post</button> --}}
+                        <form action="/posts/delete/{{id}}" method="DELETE">
+                            <input type="submit" name= 'deleteThis' class='delete-button' value="Delete Post">
+                        </form>
                     </div>
                 </div>
             {{/each}}

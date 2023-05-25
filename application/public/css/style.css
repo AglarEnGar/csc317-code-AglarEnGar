@@ -54,6 +54,48 @@ nav {
   border: 2px solid gray;
 }
 
+#flash-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+
+  margin-top: -120px;
+   /* Initial position above the screen */
+  margin-left: 25%;
+  width: 50%;
+   /* Change to desired background color */
+  color: #333; /* Change to desired text color */
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  transition: top 0.5s ease; /* Animation duration and easing */
+}
+
+#flash-message-sucs{
+  background-color: greenyellow;
+  margin-left: 25%;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#flash-message-fail {
+  background-color: red;
+  
+  margin-left: 25%;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.flash-show {
+  margin-top: 50px;
+  top: 100px; /* Final position at the top of the screen */
+}
+
 .profile-drop {
   display: grid;
   grid-template-columns: auto auto;
@@ -134,20 +176,23 @@ input[type="submit"]:hover {
 }
 
 .vid-cards {
-  display: grid;
-  grid-template-columns: fit-content(8ch) fit-content(8ch) fit-content(8ch) fit-content(8ch) 1fr;
-  grid-gap: 10px;
-  height: 100%;
-}
-
-.vid-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
-  margin: 10px;
-  padding: 5px;
 
-  width: 300px;
+}
+
+.profile-post-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .vid-card img {

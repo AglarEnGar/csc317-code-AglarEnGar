@@ -10,8 +10,9 @@ module.exports = {
             });
         }
     },
+
     isMyProfile: function(req, res, next){
-        var {id} = req.params;
+        var { id } = req.params;
         if(id == req.session.user.userId){
             next();
         }else{

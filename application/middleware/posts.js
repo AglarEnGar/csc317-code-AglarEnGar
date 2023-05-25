@@ -22,9 +22,10 @@ module.exports = {
     },
     getPostsForUserById: async function(req, res, next){
         var {id} = req.params;
+        console.log("getPostsForUserById ID: ", id);
         try {
             let [ rows, _ ] = await db.execute(
-                `select u.username, p.thumbnail, p.title, p.createdAt
+                `select u.username, p.thumbnail, p.title, p.id, p.createdAt
                 from posts p 
                 join users u 
                 on p.fk_userId=u.id
@@ -32,7 +33,7 @@ module.exports = {
                 [id]
             );
 
-            console.log(rows);
+            console.log("POSTO:", rows);
             res.locals.posts = rows;
             next();
 
@@ -42,6 +43,7 @@ module.exports = {
     },
     getPostById: async function(req, res, next){
         var {id} = req.params;
+        console.log("getPostById ID: ", req.params);
         try{
             let [rows, _ ] = await db.execute(
                 `select u.username, p.video, p.title, p.description, p.id, p.createdAt
@@ -67,6 +69,7 @@ module.exports = {
     },
     getCommentsForPostById: async function(req, res, next){
         var {id} = req.params;
+        console.log("getCommentsForPostById ID: ", id);
         try{
             let [rows, _ ] = await db.execute(
                 `select u.username, c.text, c.createdAt
@@ -84,7 +87,6 @@ module.exports = {
         }
     },
     getRecentPosts: async function(req, res, next){
-
         try{
             let [rows, _ ] = await db.execute(
                 `SELECT * FROM csc317db.posts;`
