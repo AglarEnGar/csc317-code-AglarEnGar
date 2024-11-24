@@ -18,8 +18,9 @@ Please follow the instructions below and fill in the information requested when 
 
 # Build/Run Instructions
 
-## Build Instructions
+Download this directory onto your machine and just open the html files.
+
+THIS IS AN INCOMPLETE VERSION, THE ORIGNAL REPO WAS DELETED AND MY HARDRIVE CORRUPTED
 
 
-## Run Instructions
  
